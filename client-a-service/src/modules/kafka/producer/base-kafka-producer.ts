@@ -15,7 +15,6 @@ export abstract class BaseKafkaProducer {
     const message = {
       value: payload,
       headers: {
-        retryCount: 0,
         ...customHeaders,
       },
     };
