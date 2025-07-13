@@ -12,8 +12,8 @@ export class MessageController {
     @Post()
     async handleSendMessage(@Body() data: SendMessageDto){
         await this.kafkaService.sendMessage({
-            from:"client-a",
-            to: "client-b",
+            from: data.sender,
+            to: data.receiver,
             message: data.message
         });
         return {
