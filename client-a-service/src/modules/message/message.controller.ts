@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { SendMessageDto } from './dto/send-message.dto';
-import { KafkaProducerService } from '../kafka/kafka-producer.service';
+import { KafkaProducerService } from '../kafka/producer/kafka-producer.service';
 
 @Controller('send-message')
 export class MessageController {

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { KafkaProducerService } from './kafka-producer.service';
+import { KafkaProducerService } from './producer/kafka-producer.service';
 
 @Module({
     imports: [
@@ -12,7 +12,7 @@ import { KafkaProducerService } from './kafka-producer.service';
                     transport: Transport.KAFKA,
                     options: {
                         client: {
-                            clientId: config.getOrThrow('KAFKA_CLIENT_ID'),
+                            clientId: config.get('KAFKA_CLIENT_ID') || 'client-a',
                             brokers: [config.getOrThrow('KAFKA_BROKER')]
                         },
                         producerOnlyMode: true,
