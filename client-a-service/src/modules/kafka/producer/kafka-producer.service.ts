@@ -1,7 +1,7 @@
 import { Inject, Injectable, InternalServerErrorException, OnModuleInit } from '@nestjs/common';
 import { ClientKafka } from '@nestjs/microservices';
 import { KAFKA_TOPICS } from '../kafka-constants';
-import { BaseKafkaProducer } from '../base/base-kafka-producer';
+import { BaseKafkaProducer } from './base-kafka-producer';
 
 @Injectable()
 export class KafkaProducerService extends BaseKafkaProducer implements OnModuleInit {
