@@ -37,7 +37,7 @@ export abstract class BaseKafkaTopicConsumer<T = any> {
     /**
      * Public method to call from controller or listener
      */
-    async processMessage(payload: T): Promise<void> {
+    async processTopic(payload: T): Promise<void> {
         try {
             await retry(
                 async () => {

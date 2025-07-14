@@ -35,7 +35,7 @@ export class ClientMessageConsumer extends BaseKafkaTopicConsumer<ClientMessageP
     }
 
     protected async handleDLQ(payload: ClientMessagePayload, error: unknown): Promise<void> {
-        this.logger.warn(`🚨 Sending message to DLQ: ${KAFKA_TOPICS.CLIENT_MESSAGES}`);
+        this.logger.warn(`🚨 Sending message to DLQ: ${KAFKA_TOPICS.CLIENT_MESSAGES}-dlq`);
         await this.dlqProducer.sendToDLQ(`${KAFKA_TOPICS.CLIENT_MESSAGES}-dlq`, payload)
     }
 }
